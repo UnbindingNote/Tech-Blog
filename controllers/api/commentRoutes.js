@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Comments } = require('../../models');
-// const withAuth = require('../../utils/auth'); didn't use it for project 2, I'll figure it out eventually.
+const { Comments } = require('../../models/indexEX');
+// const withAuth = require('../../utils/auth'); didn't use it here for project 2, just called it in homeRoutes... I'll figure it out eventually.
 
 
 router.post('/', async (req, res) => {

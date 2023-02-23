@@ -1,31 +1,23 @@
-// const Shop = require('./Shop');
-// const Goods = require('./Goods');
-// // const Recipes = require('./Recipes');
-// // const Ingredients = require('../archive/Models/Ingredients');
-// const User = require('./User');
+const Comment = require("./Comment");
+const Post = require("./Post");
+const User = require("./User");
 
-// Shop.hasMany(Goods, {
-//   foreignKey: 'shop_id',
-// });
 
-// Goods.belongsTo(Shop, {
-//   foreignKey: 'shop_id',
-// });
 
-// // Goods.hasOne(Recipes, {
-// //   foreignKey: 'baked_id',
-// // });
+Post.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
 
-// // Recipes.belongsTo(Goods, {
-// //   foreignKey: 'baked_id',
-// // });
+Post.hasMany(Comment, {
+  foreignKey: "postId",
+  onDelete: "CASCADE",
+});
 
-// // Recipes.hasOne(Ingredients, {
-// //   foreignKey: 'recipe_id',
-// // });
+// I want to put it above, but I'm worried it'll get mad and not order right like the other models... Why can't things just be AN
+Comment.belongsTo(User, {
+    foreignKey: "userId",
+    onDelete: "CASCADE",
+  });
 
-// // Ingredients.belongsTo(Recipes, {
-// //   foreignKey: 'recipe_id',
-// // });
-
-// module.exports = { Shop, Goods, User };
+module.exports = { Comment, Post, User, };
