@@ -10,9 +10,9 @@ router.get();
 router.post('/', withAuth, async (req, res)=>{
     try {
         const newPost = await Post.create({
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
+        //   name: req.body.name,
+        //   email: req.body.email,
+        //   password: req.body.password,
         });
         res.status(200).json(newPost);
         
